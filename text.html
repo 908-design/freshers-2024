@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<head>
+  <title>
+    text
+  </title>
+  <style>
+    body {
+      margin : 0;
+      background-color : black;
+    }
+
+    .star {
+      position : absolute;
+      width : 1px;
+      height : 1px;
+      background-color : white;
+
+    }
+
+    /*centering intro, setting color, and hiding text*/
+    .intro {
+      position : absolute;
+      top : 45%;
+      left : 37%;
+      z-index : 1;
+      animation : intro 6s ease-out 1s;
+      color : rgb(75, 213, 238);
+      font-weight : 400;
+      font-size : 300%;
+      opacity : 0;
+
+    }
+    /*intro animation*/
+    @keyframes intro {
+      0% {
+        opacity : 0; 
+      } 
+      20% {
+        opacity : 1;
+      }
+      90% {
+        opacity : 1;
+      }
+      100% {
+        opacity : 0;
+      }
+    }
+
+    /*logo animation*/
+    .logo {
+      position : absolute; 
+      top : 20%;
+      left : 45%;
+      z-index : 1;
+      margin : auto;
+      animation : logo 9s ease-out 9s;
+      opacity : 0;
+    }
+
+    .logo svg {
+      width : inherit;
+    }
+
+    @keyframes logo {
+      0% {
+        width : 18em;
+        transform : scale(2.75);
+        opacity : 1;
+      }
+      50% {
+        opacity : 1;
+        width : 18em;
+      }
+      100% {
+        opacity: 0;
+        transform : scale(0.1);
+        width : 18em;
+      }
+    }
+
+    /*text paragraph animation*/
+    p {
+      color : #FFFF82;
+    }
+
+    #board {
+      font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+      transform: perspective(300px) rotateX(25deg);
+      transform-origin: 50% 100%;
+      text-align: justify;
+      position: absolute;
+      margin-left: -9em;
+      font-weight: bold;
+      overflow: hidden;
+      font-size: 350%;
+      height: 50em;
+      width: 18em;
+      bottom: 0;
+      left: 50%;
+    }
+
+    #board:after {
+      position: absolute;
+      content: ' ';
+      bottom: 60%;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+
+    #content {
+      animation: scroll 100s linear 16s;
+      position: absolute;
+      top: 100%;
+    }
+
+    #title, #subtitle {
+      text-align: center;
+    }
+
+    @keyframes scroll {
+        0% {
+            top: 100%;
+        }
+        100% {
+            top: -170%;
+        }
+    }
+    .meta-link {
+        align-items: center;
+        backdrop-filter: blur(3px);
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        display: inline-flex;
+        gap: 5px;
+        left: 10px;
+        padding: 10px 20px;
+        position: fixed;
+        text-decoration: none;
+        transition: background-color 600ms, border-color 600ms;
+        z-index: 10000;
+    }
+
+    .meta-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .meta-link>i,
+    .meta-link>span {
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .meta-link>span {
+        color: white;
+        font-family: "Rubik", sans-serif;
+        transition: color 600ms;
+    }
+
+  </style>
+</head>
+<body>
+  <section class="intro">
+   The wait is over buckle up and get ready for ,<br> Freshers 2024....
+  </section>
+
+
+  <!--CONTENT-->
+
+  <div id="board">  
+    <div id="content">
+      <p id="title">Freshers 2024</p>
+      <p id="subtitle">THIS IS WHERE THE FUN BEGINS</p>
+      <br>
+      <p>We seniors welcome you all to the freshers 2024, where you create memories that lasts forever, the day which cherished forever and the day filled with heartfelt joy and preservence of moment</p>    
+      <p>
+        what else you're waiting for? 
+      </p>
+      <p>
+       Buckle up and be excited for the day which gives you memories which are best of one kind
+      </p>
+      <p>
+        Also, goodluck and see you there with all the smiling and happy faces 
+      </p>
+      
+      <p>
+        From your seniors 
+      </p>
+      <a id="source-link" class="meta-link" href="" target="_blank">
+          <i class="fas fa-link"></i>
+          <span class="roboto-mono">CLICK THIS </span>
+      </a>
+    </div>  
+  </div>
+  
+  <script>
+    //set number of stars on screen
+    const numStars = 200;
+
+    //displaying stars
+    for (let i = 0; i < numStars; i++){
+      let star = document.createElement("div");
+      star.className = "star";
+      var xy= getRandomPosition();
+      star.style.top = xy[0] + 'px';
+      star.style.left = xy[1] + 'px';
+      document.body.append(star);
+    }
+
+    //getting x,y values based on container size
+    function getRandomPosition(){
+      var y = window.innerWidth;
+      var x = window.innerHeight;
+      var randomY = Math.floor(Math.random()*y);
+      var randomX = Math.floor(Math.random()*x)
+      return [randomX, randomY];
+    }
+
+
+  </script>
+</body>
+</html>
