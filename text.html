@@ -168,10 +168,15 @@
    The wait is over buckle up and get ready for ,<br> Freshers 2024....
   </section>
 
- <a id="source-video" class="meta-link" video src="video/main college video.mp4" target="_blank">
-          <i class="fas fa-link"></i>
-          <span class="roboto-mono">CLICK THIS </span>
-      </a>
+ <a id="play-link" class="meta-link" target="_blank">
+  <i class="fas fa-link"></i>
+  <span class="roboto-mono">CLICK THIS </span>
+</a>
+<video id="video" width="640" height="480" autoplay loop>
+  <source id="video-source" src="" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
   <!--CONTENT-->
 
   <div id="board">  
@@ -228,6 +233,16 @@
       video.load();
       video.play();
     });
+    const playLink = document.getElementById('play-link');
+  const video = document.getElementById('video');
+  const videoSource = document.getElementById('video-source');
+
+  playLink.addEventListener('click', (e) => {
+    e.preventDefault(); // prevent the link from navigating to a new page
+    videoSource.src = 'video/main college video.mp4';
+    video.load();
+    video.play();
+  });
 
   </script>
 </body>
