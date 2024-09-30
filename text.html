@@ -175,7 +175,7 @@
   <!--CONTENT-->
 
   <div id="board">  
-    
+
     <div id="content">
       <p id="title">Freshers 2024</p>
       <p id="subtitle">THIS IS WHERE THE FUN BEGINS</p>
@@ -190,13 +190,17 @@
       <p>
         Also, goodluck and see you there with all the smiling and happy faces 
       </p>
-      
+      <button id="play-button">Play Video</button>
+      <video id="video" width="640" height="480" autoplay loop>
+        <source id="video-source" src="main college video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <p>
         From your seniors 
       </p>
     </div>  
   </div>
-  
+
   <script>
     //set number of stars on screen
     const numStars = 200;
@@ -219,7 +223,15 @@
       var randomX = Math.floor(Math.random()*x)
       return [randomX, randomY];
     }
+    const playButton = document.getElementById('play-button');
+    const video = document.getElementById('video');
+    const videoSource = document.getElementById('video-source');
 
+    playButton.addEventListener('click', () => {
+      videoSource.src = 'your-video-file.mp4'; // replace with your video file
+      video.load();
+      video.play();
+    });
 
   </script>
 </body>
