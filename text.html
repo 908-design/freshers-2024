@@ -217,26 +217,11 @@
       var randomX = Math.floor(Math.random()*x)
       return [randomX, randomY];
     }
-    const playButton = document.getElementById('play-button');
-    const video = document.getElementById('video');
-    const videoSource = document.getElementById('video-source');
-
-    playButton.addEventListener('click', () => {
-      videoSource.src = 'your-video-file.mp4'; // replace with your video file
-      video.load();
-      video.play();
+    const videoLink = document.getElementById("videoLink");
+    videoLink.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        window.open("video/main college video.mp4", "_blank"); 
     });
-    const playLink = document.getElementById('play-link');
-  const video = document.getElementById('video');
-  const videoSource = document.getElementById('video-source');
-
-  playLink.addEventListener('click', (e) => {
-    e.preventDefault(); // prevent the link from navigating to a new page
-    videoSource.src = 'video/main college video.mp4';
-    video.load();
-    video.play();
-  });
-
   </script>
 </body>
 </html>
